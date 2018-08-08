@@ -1,16 +1,17 @@
 const validate = (amount) => {
-	if (parseInt(amount) < 0) {
+	const tmp = parseInt(amount, 10);
+	if (tmp < 0) {
 		throw new Error('InvalidArgumentException');
-	} else if (parseInt(amount) % 10 > 0) {
+	} else if (tmp % 10 > 0) {
 		throw new Error('NoteUnavailableException');
-	} else if (isNaN(parseInt(amount)) && !/^(null)$/.test(amount)){
+	} else if (isNaN(tmp) && !/^(null)$/.test(amount)){
 		throw new Error('InvalidArgumentTypeException');
 	}
 }
 
 const withdraw = (amount) => {
 	const notes = [100, 50, 20, 10];
-	let withdraw = [];
+	const availableNotes = [];
 	let rest = amount;
 	let i = 0;
 
@@ -20,11 +21,10 @@ const withdraw = (amount) => {
 			continue;
 		}
 		rest -= notes[i];
-		withdraw.push(notes[i]);
+		availableNotes.push(notes[i]);
 	}
-	return withdraw;
+	return availableNotes;
 }
-
 
 module.exports = {
 	validate,

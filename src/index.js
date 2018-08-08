@@ -4,21 +4,19 @@ const utils = require('./utils');
 const port = process.env.PORT || 3000;
 const app = express();
 
-
 app.get('/withdraw/:amount', (req, res) => {
-
 	let result;
 	let { amount } = req.params;
 
-	try{
+	try {
 		utils.validate(amount);
-	} catch(e) {
-		return res.status(400).send({result: e.message});
+	} catch (e) {
+		return res.status(400).send({ result: e.message });
 	}
 
 	result = utils.withdraw(parseInt(amount));
 
-	res.send({result});
+	res.send({ result });
 });
 
 app.listen(port, () => {

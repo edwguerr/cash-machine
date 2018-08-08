@@ -62,3 +62,9 @@ the amount of money you would like to get.
 ```
 localhost:3000/withdraw/{amount}
 ```
+### App
+
+You can use the app.js to run autonomously on the command line. For this run:
+```
+nodemon src/app.js -a {VALUE_TO_TEST}
+```
