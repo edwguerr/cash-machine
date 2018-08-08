@@ -1,0 +1,23 @@
+{
+  "name": "cash-machine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "mocha src/*.test.js",
+    "test-watch": "PORT=8000 nodemon --exec 'npm test'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "expect": "^23.4.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "yargs": "^12.0.1"
+  }
+}
